@@ -1,4 +1,5 @@
 require 'test/unit'
+require '../lib/icoveralls/project_valider'
 
 class MyTest < Test::Unit::TestCase
 
@@ -16,8 +17,9 @@ class MyTest < Test::Unit::TestCase
   end
 
   # Fake test
-  def test_fail
+  def test_project_valider
     # T change this template use File | Settings | File Templates.
-    assert_equal true, true, "Should be true"
+    assert_false Icoveralls::ProjectValider.validProject("/")
+
   end
 end

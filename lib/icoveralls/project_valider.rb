@@ -1,3 +1,4 @@
+require 'pathname'
 
 module Icoveralls
 
@@ -5,10 +6,9 @@ class ProjectValider
 
   def self.validProject(project_path)
 
-    if not File.exist?(project_path)
-        puts "File does not exist"
-      return false
-    else
+      if Dir.exist?(project_path)
+
+        pn = Pathname.new(project_path)
 
 
     end

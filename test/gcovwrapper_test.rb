@@ -34,6 +34,6 @@ class GCovWrapperTest < Test::Unit::TestCase
 
   def test_coverage
     a = GcovWrapper.instance
-    a.cover_pathname("/Users/yaya/Library/Developer/Xcode/DerivedData/Peeler-felspnidhcrmdwdrwjfogbkrttoz/Build/Intermediates/Peeler.build/Debug/Peeler.build/Objects-normal/x86_64")
+    a.cover_pathname("/Users/yaya/Library/Developer/Xcode/DerivedData/Peeler-dherrfbllvxygmdwjjuxlwcoqwdt/Build/Intermediates/Peeler.build/Debug/Peeler.build/Objects-normal/x86_64")
   end
 end

@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Icoveralls::VERSION
   spec.authors       = ["YaGeek"]
   spec.email         = ["yannick.heinrich@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{a converalls.io tool for object-c and xcode programs}
+  spec.summary       = %q{a converalls.io tool for object-c and xcode programs}
   spec.homepage      = ""
   spec.license       = "MIT"
 

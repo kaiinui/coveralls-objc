@@ -18,6 +18,7 @@ module Icoveralls
       puts "Use gcov version:" + @@gcov_version
     end
 
+      @source_files_coverage = []
 
     def cover_pathname(pathname)
 
@@ -27,8 +28,15 @@ module Icoveralls
       Dir.glob("*.gcno") do |gcno|
 
         puts "Analysing coverage of:#{gcno}"
-        result = `gcov #{gcno}`
-        puts result
+        result = `#{@@gcov_path} #{gcno}`
+      end
+
+      Dir.glob("*.{m,mm,c}.gcov") do |gcov|
+
+        puts "Reading coverage for files: #{gcov}"
+
+        self.class.GcovToHash("#{pathname}/#{gcov}")
+
 
       end
 
@@ -43,7 +51,7 @@ module Icoveralls
         begin
           directory = Dir.new(dir)
         rescue
-          puts "Error by opening :" + dir  + ". Check your $PATH"
+          puts "Warning: could not open :" + dir  + ". Fix your $PATH to suppress warning"
           next
         end
          directory.each do |file|
@@ -61,6 +69,12 @@ module Icoveralls
       return found
     end
     # To change this template use File | Settings | File Templates.
+     def self.GcovToHash(gcov_pathname)
+
+       # file = File.new(gcov_pathname)
+     end
   end
+
+
 
 end

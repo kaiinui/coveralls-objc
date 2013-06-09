@@ -14,7 +14,10 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.3.5, rbenv: 2.0.0-p195) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mime-types (v1.23, rbenv: 2.0.0-p195) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.7.6, rbenv: 2.0.0-p195) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v10.0.4, rbenv: 2.0.0-p195) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rest-client (v1.6.7, rbenv: 2.0.0-p195) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="test-unit (v2.5.5, rbenv: 2.0.0-p195) [gem]" level="application" />
   </component>
 </module>

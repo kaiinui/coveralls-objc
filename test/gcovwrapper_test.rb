@@ -31,9 +31,4 @@ class GCovWrapperTest < Test::Unit::TestCase
 
     assert_not_nil(GcovWrapper.instance)
   end
-
-  def test_coverage
-    a = GcovWrapper.instance
-    a.cover_pathname("/Users/yaya/Library/Developer/Xcode/DerivedData/Peeler-dherrfbllvxygmdwjjuxlwcoqwdt/Build/Intermediates/Peeler.build/Debug/Peeler.build/Objects-normal/x86_64")
-  end
 end

@@ -6,7 +6,11 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    mime-types (1.23)
+    multi_json (1.7.6)
     rake (10.0.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     test-unit (2.5.5)
 
 PLATFORMS
@@ -15,5 +19,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.3)
   icoveralls!
+  multi_json
   rake
+  rest-client
   test-unit

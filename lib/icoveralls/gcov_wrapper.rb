@@ -22,6 +22,7 @@ module Icoveralls
 
     def cover_pathname(pathname)
 
+      source_files = []
       currentPath = Dir.pwd
 
       Dir.chdir(pathname)
@@ -33,14 +34,15 @@ module Icoveralls
 
       Dir.glob("*.{m,mm,c}.gcov") do |gcov|
 
-        puts "Reading coverage for files: #{gcov}"
+      puts "Reading coverage for files: #{gcov}"
 
-        self.class.GcovToHash("#{pathname}/#{gcov}")
-
+      source_files << self.class.GcovToHash(Pathname.new("#{pathname}/#{gcov}"))
 
       end
 
       Dir.chdir(currentPath)
+
+      source_files
     end
 
     def self.GcovInstalled?
@@ -71,10 +73,33 @@ module Icoveralls
     # To change this template use File | Settings | File Templates.
      def self.GcovToHash(gcov_pathname)
 
-       # file = File.new(gcov_pathname)
+        coverages = []
+        source = ""
+       File.open(gcov_pathname).each_line do |line|
+
+         line_array = line.split(":")
+         line_number = line_array[1].delete(" ").to_i
+
+         if(line_number == 0)
+           next
+         end
+
+         coverage_counter = line_array[0].delete(" \n")
+
+         if(coverage_counter == '-')
+           coverage_counter = nil
+         elsif (coverage_counter == "#####")
+           coverage_counter = 0
+         else
+           coverage_counter = coverage_counter.to_i
+         end
+
+         coverages << coverage_counter
+         source << line_array[2]
+
+       end
+
+       return { :name => gcov_pathname.basename.to_s.chomp(".gcov") , :source => source, :coverage => coverages}
      end
   end
-
-
-
 end

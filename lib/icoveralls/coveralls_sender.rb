@@ -27,7 +27,7 @@ module Icoveralls
 
     def self.hash_to_file(hash)
       file = nil
-      Tempfile.open(['icoveralls-upload', 'json']) do |f|
+      Tempfile.open(['coveralls-upload', 'json']) do |f|
         f.write(MultiJson.dump hash, :pretty => true)
         file = f
       end

@@ -21,11 +21,11 @@ class CoverallsSenderTest < Test::Unit::TestCase
   # Fake test
   def test_commit
     # To change this template use File | Settings | File Templates.
-   # a = GcovWrapper.instance
-    #src_file = a.cover_pathname("/Users/yaya/Library/Developer/Xcode/DerivedData/Peeler-felspnidhcrmdwdrwjfogbkrttoz/Build/Intermediates/Peeler.build/Debug/Peeler.build/Objects-normal/x86_64/")
+     a = GcovWrapper.instance
+    src_file = a.cover_pathname("/Users/yaya/Library/Developer/Xcode/DerivedData/Peeler-felspnidhcrmdwdrwjfogbkrttoz/Build/Intermediates/Peeler.build/Debug/Peeler.build/Objects-normal/x86_64/")
 
-     # coveralls_sender = CoverallsSender.new("cSCWZdYZPP0HT5nyH1oxOkfe0U16dPZzu","travis-ci",src_file)
-      #coveralls_sender.commit"
+      coveralls_sender = CoverallsSender.new("cSCWZdYZPP0HT5nyH1oxOkfe0U16dPZzu","travis-ci",src_file)
+      coveralls_sender.commit
 
   end
 end

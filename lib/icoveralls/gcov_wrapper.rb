@@ -1,5 +1,5 @@
 require 'singleton'
-
+require 'pathname'
 module Icoveralls
 
   class GcovWrapper
@@ -70,8 +70,8 @@ module Icoveralls
       end
       return found
     end
-    # To change this template use File | Settings | File Templates.
-     def self.GcovToHash(gcov_pathname)
+    
+    def self.GcovToHash(gcov_pathname)
 
         coverages = []
         source = ""
@@ -98,8 +98,11 @@ module Icoveralls
          source << line_array[2]
 
        end
+        puts "Analysis of file:#{gcov_pathname.basename}"
+	puts "Ocurrence of EOL:#{source.lines.count}"
+	puts "Covered lines :#{coverages.count}"
 
-       return { :name => gcov_pathname.basename.to_s.chomp(".gcov") , :source => source, :coverage => coverages}
+       return { :name => 'Peeler/'+gcov_pathname.basename.to_s.chomp(".gcov") , :source => source, :coverage => coverages}
      end
   end
 end

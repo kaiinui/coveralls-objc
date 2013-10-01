@@ -1,5 +1,5 @@
 require 'test/unit'
-require '../lib/icoveralls/project_valider'
+require 'lib/icoveralls/project_valider'
 
 include Icoveralls
 

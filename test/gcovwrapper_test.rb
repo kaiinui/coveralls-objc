@@ -1,5 +1,5 @@
 require 'test/unit'
-require "../lib/icoveralls/gcov_wrapper"
+require_relative "../lib/icoveralls/gcov_wrapper"
 
 include Icoveralls
 

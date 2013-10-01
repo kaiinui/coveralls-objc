@@ -1,6 +1,6 @@
 require 'test/unit'
-require '../lib/icoveralls/coveralls_sender'
-require '../lib/icoveralls/gcov_wrapper'
+require_relative '../lib/icoveralls/coveralls_sender'
+require_relative '../lib/icoveralls/gcov_wrapper'
 
 include Icoveralls
 class CoverallsSenderTest < Test::Unit::TestCase
@@ -22,9 +22,12 @@ class CoverallsSenderTest < Test::Unit::TestCase
   def test_commit
     # To change this template use File | Settings | File Templates.
      a = GcovWrapper.instance
-    src_file = a.cover_pathname("/Users/yaya/Library/Developer/Xcode/DerivedData/Peeler-felspnidhcrmdwdrwjfogbkrttoz/Build/Intermediates/Peeler.build/Debug/Peeler.build/Objects-normal/x86_64/")
+    src_file = a.cover_pathname("/Users/yaya/Library/Developer/Xcode/DerivedData/Peeler-hfzcyonesoxsyagsotmbnpydftxw/Build/Intermediates/Peeler.build/Debug/Peeler.build/Objects-normal/x86_64")
 
-      coveralls_sender = CoverallsSender.new("cSCWZdYZPP0HT5nyH1oxOkfe0U16dPZzu","travis-ci",src_file)
+      coveralls_sender = CoverallsSender.new("ZpetHnxjI1aRh7n8qEtpHUrz7QRJrGGFJ","travis-ci",src_file)
+
+     coveralls_sender.printHash
+	
       coveralls_sender.commit
 
   end

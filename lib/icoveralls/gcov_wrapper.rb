@@ -95,14 +95,14 @@ module Icoveralls
         end
 
         coverages << coverage_counter
-        source << line_array[2]
+        source << line_array[2].force_encoding("UTF-8")
 
       end
       puts "Analysis of file:#{gcov_pathname.basename}"
       puts "Ocurrence of EOL:#{source.lines.count}"
       puts "Covered lines :#{coverages.count}"
 
-      return { :name => 'Peeler/'+gcov_pathname.basename.to_s.chomp(".gcov") , :source => source, :coverage => coverages}
+      return { :name => gcov_pathname.basename.to_s.chomp(".gcov") , :source => source, :coverage => coverages}
     end
   end
 end

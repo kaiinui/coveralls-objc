@@ -21,7 +21,6 @@ module Icoveralls
     end
 
     def commit
-
       response = RestClient.post 'https://coveralls.io/api/v1/jobs', :json_file => self.class.hash_to_file(@json_file_hash)
       puts MultiJson.load(response.to_str)
     end

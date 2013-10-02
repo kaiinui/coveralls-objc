@@ -1,5 +1,5 @@
 require 'pathname'
-require 'Singleton'
+require 'singleton'
 
 module Icoveralls
 

@@ -1,11 +1,11 @@
 module Icoveralls
 
   class GcovWrapper
-               include Singleton
+    include Singleton
     def initialize
 
       if not self.class.GcovInstalled?
-       raise "gcov was not found in path. Check your environment variables"
+        raise "gcov was not found in path. Check your environment variables"
       end
 
       version_info = `gcov --version`
@@ -16,7 +16,7 @@ module Icoveralls
       puts "Use gcov version:" + @@gcov_version
     end
 
-      @source_files_coverage = []
+    @source_files_coverage = []
 
     def cover_pathname(pathname)
 
@@ -32,9 +32,9 @@ module Icoveralls
 
       Dir.glob("*.{m,mm,c}.gcov") do |gcov|
 
-      puts "Reading coverage for files: #{gcov}"
+        puts "Reading coverage for files: #{gcov}"
 
-      source_files << self.class.GcovToHash(Pathname.new("#{pathname}/#{gcov}"))
+        source_files << self.class.GcovToHash(Pathname.new("#{pathname}/#{gcov}"))
 
       end
 
@@ -54,53 +54,53 @@ module Icoveralls
           puts "Warning: could not open :" + dir  + ". Fix your $PATH to suppress warning"
           next
         end
-         directory.each do |file|
+        directory.each do |file|
 
-              if(file == "gcov")
-                found = true
-                @@gcov_path = dir + "/" + file
-                break
-              end
-        end
-          if found
+          if(file == "gcov")
+            found = true
+            @@gcov_path = dir + "/" + file
             break
           end
+        end
+        if found
+          break
+        end
       end
       return found
     end
-    
+
     def self.GcovToHash(gcov_pathname)
 
-        coverages = []
-        source = ""
-       File.open(gcov_pathname).each_line do |line|
+      coverages = []
+      source = ""
+      File.open(gcov_pathname).each_line do |line|
 
-         line_array = line.split(":")
-         line_number = line_array[1].delete(" ").to_i
+        line_array = line.split(":")
+        line_number = line_array[1].delete(" ").to_i
 
-         if(line_number == 0)
-           next
-         end
+        if(line_number == 0)
+          next
+        end
 
-         coverage_counter = line_array[0].delete(" \n")
+        coverage_counter = line_array[0].delete(" \n")
 
-         if(coverage_counter == '-')
-           coverage_counter = nil
-         elsif (coverage_counter == "#####")
-           coverage_counter = 0
-         else
-           coverage_counter = coverage_counter.to_i
-         end
+        if(coverage_counter == '-')
+          coverage_counter = nil
+        elsif (coverage_counter == "#####")
+          coverage_counter = 0
+        else
+          coverage_counter = coverage_counter.to_i
+        end
 
-         coverages << coverage_counter
-         source << line_array[2]
+        coverages << coverage_counter
+        source << line_array[2]
 
-       end
-        puts "Analysis of file:#{gcov_pathname.basename}"
-        puts "Ocurrence of EOL:#{source.lines.count}"
-        puts "Covered lines :#{coverages.count}"
+      end
+      puts "Analysis of file:#{gcov_pathname.basename}"
+      puts "Ocurrence of EOL:#{source.lines.count}"
+      puts "Covered lines :#{coverages.count}"
 
-       return { :name => 'Peeler/'+gcov_pathname.basename.to_s.chomp(".gcov") , :source => source, :coverage => coverages}
-     end
+      return { :name => 'Peeler/'+gcov_pathname.basename.to_s.chomp(".gcov") , :source => source, :coverage => coverages}
+    end
   end
 end

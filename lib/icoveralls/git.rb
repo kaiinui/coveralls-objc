@@ -8,7 +8,7 @@ module Icoveralls
 
 
 
-  def self.gitrepo(pathname)
+  def gitrepo(pathname)
 
     Dir.chdir(pathname)
 
@@ -23,11 +23,11 @@ module Icoveralls
         :message => self.gitlog('%s'),
       },
       :branch => `git rev-parse --abbrev-ref HEAD`.strip,
-      :remotes => self.remoteHash(pathname)
+      :remotes => remoteHash(pathname)
     }
   end
 
-  def self.remoteHash(pathname)
+  def remoteHash(pathname)
 
     Dir.chdir(pathname)
 

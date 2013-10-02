@@ -1,6 +1,6 @@
 require 'thor'
-require '../lib/icoveralls/coveralls_sender'
-require '../lib/icoveralls/gcov_wrapper'
+require 'icoveralls/coveralls_sender'
+require 'icoveralls/gcov_wrapper'
 
 module Icoveralls
 

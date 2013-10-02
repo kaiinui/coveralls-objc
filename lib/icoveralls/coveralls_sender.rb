@@ -1,6 +1,7 @@
 require 'rest_client'
 require 'multi_json'
 require 'tempfile'
+require 'icoveralls/git'
 
 module Icoveralls
 
@@ -8,12 +9,13 @@ module Icoveralls
 
     # To change this template use File | Settings | File Templates.
 
-    def initialize(repo_token,service_name, sources_files_hash)
+    def initialize(repo_token,service_name, sources_files_hash, git_hash)
 
       @json_file_hash = {
 
         :repo_token => repo_token,
         :sources_files => sources_files_hash,
+        :git => git_hash
       }
 
     end

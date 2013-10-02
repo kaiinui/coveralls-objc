@@ -1,7 +1,8 @@
 require 'rest_client'
 require 'multi_json'
 require 'tempfile'
-require 'icoveralls/git'
+
+require_relative 'git'
 
 module Icoveralls
 

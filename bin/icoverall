@@ -1,3 +1,4 @@
 #!/usr/bin/env ruby
+require_relative '../lib/icoveralls/coveralls_cli'
 
 Icoveralls::CoverallsCLI.start(ARGV)

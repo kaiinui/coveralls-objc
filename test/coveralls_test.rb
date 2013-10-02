@@ -27,8 +27,8 @@ class CoverallsSenderTest < Test::Unit::TestCase
      src_file = a.cover_pathname("/Users/yaya/Library/Developer/Xcode/DerivedData/Peeler-hfzcyonesoxsyagsotmbnpydftxw/Build/Intermediates/Peeler.build/Debug/Peeler.build/Objects-normal/x86_64")
      coveralls_sender = CoverallsSender.new("ZpetHnxjI1aRh7n8qEtpHUrz7QRJrGGFJ","travis-ci",src_file)
 
-      puts Icoveralls::gitrepo('/Users/yaya/Dev/github/Peeler')
-      coveralls_sender.printHash
+     puts Icoveralls::gitrepo('/Users/yaya/Dev/github/Peeler')
+     coveralls_sender.printHash
      coveralls_sender.commit
 
   end

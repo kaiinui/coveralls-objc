@@ -13,7 +13,7 @@ module Icoveralls
 
       return true
     end
-    # To change this template use File | Settings | File Templates.
+
   end
 
 

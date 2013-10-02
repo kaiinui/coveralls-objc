@@ -7,16 +7,21 @@ module Icoveralls
 
   class CoverallsSender
 
-    # To change this template use File | Settings | File Templates.
+    def initialize(repo_token, sources_files_hash, git_hash)
 
-    def initialize(repo_token,service_name, sources_files_hash, git_hash)
+      @json_file_hash = {}
 
-      @json_file_hash = {
+      if not defined? repo_token
+        @json_file_hash[:service_name] = 'travis-ci'
+        @json_file_hash[:service_job_id] = ENV['TRAVIS_JOB_ID']
+      else
+        @json_file_hash[:service_name] = 'coveralls-objc'
+        @json_file_hash[:repo_token] = repo_token
+      end
 
-        :repo_token => repo_token,
-        :sources_files => sources_files_hash,
-        :git => git_hash
-      }
+      @json_file_hash[:repo_token]= repo_token
+      @json_file_hash[:sources_files] = sources_files_hash
+      @json_file_hash[:git] = git_hash
 
     end
 

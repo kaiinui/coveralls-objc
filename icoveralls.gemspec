@@ -10,8 +10,9 @@ Gem::Specification.new do |spec|
   spec.email         = ["yannick.heinrich@gmail.com"]
   spec.description   = %q{a converalls.io tool for object-c and xcode programs}
   spec.summary       = %q{a converalls.io tool for object-c and xcode programs}
-  spec.homepage      = ""
+  spec.homepage      = "http://github.com/YaGeek/coveralls-objc"
   spec.license       = "MIT"
+  spec.date          = "2013-10-02"
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
@@ -20,6 +21,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rest-client", "~> 1.6.7"
   spec.add_dependency "multi_json" , "~> 1.7.6"
+  spec.add_dependency "thor" , "~> 0.18.1"
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
 

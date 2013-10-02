@@ -1,5 +1,3 @@
-require 'singleton'
-require 'pathname'
 module Icoveralls
 
   class GcovWrapper
@@ -99,8 +97,8 @@ module Icoveralls
 
        end
         puts "Analysis of file:#{gcov_pathname.basename}"
-	puts "Ocurrence of EOL:#{source.lines.count}"
-	puts "Covered lines :#{coverages.count}"
+        puts "Ocurrence of EOL:#{source.lines.count}"
+        puts "Covered lines :#{coverages.count}"
 
        return { :name => 'Peeler/'+gcov_pathname.basename.to_s.chomp(".gcov") , :source => source, :coverage => coverages}
      end

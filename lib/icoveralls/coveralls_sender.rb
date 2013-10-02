@@ -10,7 +10,7 @@ module Icoveralls
 
     def initialize(repo_token,service_name, sources_files_hash)
 
-	    
+      
 
       @json_file_hash = {
 
@@ -23,7 +23,7 @@ module Icoveralls
     def commit
 
        response = RestClient.post 'https://coveralls.io/api/v1/jobs', :json_file => self.class.hash_to_file(@json_file_hash)
-      puts MultiJson.load(response.to_str)
+       puts MultiJson.load(response.to_str)
     end
 
     def self.hash_to_file(hash)
@@ -36,7 +36,7 @@ module Icoveralls
     end
 
     def printHash
-	puts MultiJson.dump @json_file_hash, :pretty => true	
+        puts MultiJson.dump @json_file_hash, :pretty => true  
     end
   end
   end
